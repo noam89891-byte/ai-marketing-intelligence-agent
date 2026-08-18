@@ -1,6 +1,6 @@
 {
   "name": "get_dimension_breakdown",
-  "description": "Compare a requested KPI between two periods across a business dimension to identify where a change is concentrated.",
+  "description": "Compare a requested KPI between two periods across a business dimension, optionally filtered by other dimensions, to identify where a change is concentrated.",
   "input_schema": {
     "type": "object",
     "additionalProperties": false,
@@ -32,6 +32,24 @@
       },
       "comparison_period": {
         "type": "string"
+      },
+      "filters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "channel": {
+            "type": "string"
+          },
+          "campaign": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "product": {
+            "type": "string"
+          }
+        }
       }
     },
     "required": [
