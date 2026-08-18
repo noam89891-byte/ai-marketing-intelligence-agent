@@ -1,6 +1,6 @@
 {
   "name": "get_kpi_comparison",
-  "description": "Compare a requested KPI between two periods and return the current value, previous value, absolute change, and percentage change.",
+  "description": "Compare a requested KPI between two periods, optionally filtered by business dimensions, and return the current value, previous value, absolute change, and percentage change.",
   "input_schema": {
     "type": "object",
     "additionalProperties": false,
@@ -23,6 +23,24 @@
       },
       "comparison_period": {
         "type": "string"
+      },
+      "filters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "channel": {
+            "type": "string"
+          },
+          "campaign": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "product": {
+            "type": "string"
+          }
+        }
       }
     },
     "required": [
