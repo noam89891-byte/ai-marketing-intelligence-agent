@@ -1,0 +1,151 @@
+{
+  "type": "object",
+  "properties": {
+    "analysis_type": {
+      "type": "string"
+    },
+
+    "decision": {
+      "type": "object",
+      "properties": {
+        "action_required": {
+          "type": "boolean"
+        },
+        "summary": {
+          "type": "string"
+        }
+      },
+      "required": ["action_required", "summary"]
+    },
+
+    "confidence": {
+      "type": "object",
+      "properties": {
+        "level": {
+          "type": "string",
+          "enum": ["high", "medium", "low"]
+        },
+        "reason": {
+          "type": "string"
+        }
+      },
+      "required": ["level", "reason"]
+    },
+
+    "executive_summary": {
+      "type": "string"
+    },
+
+    "entity_analysis": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "entity_type": {
+            "type": "string"
+          },
+          "entity_name": {
+            "type": "string"
+          },
+          "action": {
+            "type": "string",
+            "enum": [
+              "increase",
+              "decrease",
+              "maintain",
+              "investigate",
+              "none"
+            ]
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "risks": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "entity_type",
+          "entity_name",
+          "action",
+          "evidence",
+          "risks"
+        ]
+      }
+    },
+
+    "main_drivers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "driver": {
+            "type": "string"
+          },
+          "evidence": {
+            "type": "string"
+          }
+        },
+        "required": ["driver", "evidence"]
+      }
+    },
+
+    "hypotheses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "hypothesis": {
+            "type": "string"
+          },
+          "verification_needed": {
+            "type": "string"
+          }
+        },
+        "required": ["hypothesis", "verification_needed"]
+      }
+    },
+
+    "recommendations": {
+      "type": "array",
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          }
+        },
+        "required": ["action", "reason"]
+      }
+    },
+
+    "metrics_to_monitor": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+
+  "required": [
+    "analysis_type",
+    "decision",
+    "confidence",
+    "executive_summary",
+    "entity_analysis",
+    "main_drivers",
+    "hypotheses",
+    "recommendations",
+    "metrics_to_monitor"
+  ]
+}
