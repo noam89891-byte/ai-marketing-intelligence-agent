@@ -1,0 +1,34 @@
+{
+  "name": "get_kpi_comparison",
+  "description": "Compare a requested KPI between two periods and return the current value, previous value, absolute change, and percentage change.",
+  "input_schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "metric": {
+        "type": "string",
+        "enum": [
+          "revenue",
+          "spend",
+          "profit",
+          "roas",
+          "clicks",
+          "conversions",
+          "cpa",
+          "cvr"
+        ]
+      },
+      "current_period": {
+        "type": "string"
+      },
+      "comparison_period": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "metric",
+      "current_period",
+      "comparison_period"
+    ]
+  }
+}
