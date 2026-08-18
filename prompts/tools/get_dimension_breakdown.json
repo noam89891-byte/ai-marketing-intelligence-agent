@@ -1,0 +1,44 @@
+{
+  "name": "get_dimension_breakdown",
+  "description": "Compare a requested KPI between two periods across a business dimension to identify where a change is concentrated.",
+  "input_schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "metric": {
+        "type": "string",
+        "enum": [
+          "revenue",
+          "spend",
+          "profit",
+          "roas",
+          "clicks",
+          "conversions",
+          "cpa",
+          "cvr"
+        ]
+      },
+      "dimension": {
+        "type": "string",
+        "enum": [
+          "channel",
+          "campaign",
+          "country",
+          "product"
+        ]
+      },
+      "current_period": {
+        "type": "string"
+      },
+      "comparison_period": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "metric",
+      "dimension",
+      "current_period",
+      "comparison_period"
+    ]
+  }
+}
