@@ -1,6 +1,6 @@
 {
   "name": "get_kpi_comparison",
-  "description": "Compare a requested KPI between two periods, optionally filtered by business dimensions, and return the current value, previous value, absolute change, and percentage change.",
+  "description": "Compare a requested KPI between the latest two complete weeks, optionally filtered to a specific channel, and return the current value, previous value, absolute change, and percentage change.",
   "input_schema": {
     "type": "object",
     "additionalProperties": false,
@@ -11,18 +11,13 @@
           "revenue",
           "spend",
           "profit",
-          "roas",
           "clicks",
           "conversions",
-          "cpa",
-          "cvr"
+          "roas",
+          "ctr",
+          "cvr",
+          "cpa"
         ]
-      },
-      "current_period": {
-        "type": "string"
-      },
-      "comparison_period": {
-        "type": "string"
       },
       "filters": {
         "type": "object",
@@ -30,23 +25,12 @@
         "properties": {
           "channel": {
             "type": "string"
-          },
-          "campaign": {
-            "type": "string"
-          },
-          "country": {
-            "type": "string"
-          },
-          "product": {
-            "type": "string"
           }
         }
       }
     },
     "required": [
-      "metric",
-      "current_period",
-      "comparison_period"
+      "metric"
     ]
   }
 }
