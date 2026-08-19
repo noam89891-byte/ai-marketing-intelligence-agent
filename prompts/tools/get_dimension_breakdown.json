@@ -1,6 +1,6 @@
 {
   "name": "get_dimension_breakdown",
-  "description": "Compare a requested KPI between two periods across a business dimension, optionally filtered by other dimensions, to identify where a change is concentrated.",
+  "description": "Compare a requested KPI between the latest two complete weeks across a supported business dimension. Use this tool to identify where a KPI change is concentrated and to drill down from channel level to campaign level.",
   "input_schema": {
     "type": "object",
     "additionalProperties": false,
@@ -11,27 +11,20 @@
           "revenue",
           "spend",
           "profit",
-          "roas",
           "clicks",
           "conversions",
-          "cpa",
-          "cvr"
+          "roas",
+          "ctr",
+          "cvr",
+          "cpa"
         ]
       },
       "dimension": {
         "type": "string",
         "enum": [
           "channel",
-          "campaign",
-          "country",
-          "product"
+          "campaign"
         ]
-      },
-      "current_period": {
-        "type": "string"
-      },
-      "comparison_period": {
-        "type": "string"
       },
       "filters": {
         "type": "object",
@@ -39,24 +32,13 @@
         "properties": {
           "channel": {
             "type": "string"
-          },
-          "campaign": {
-            "type": "string"
-          },
-          "country": {
-            "type": "string"
-          },
-          "product": {
-            "type": "string"
           }
         }
       }
     },
     "required": [
       "metric",
-      "dimension",
-      "current_period",
-      "comparison_period"
+      "dimension"
     ]
   }
 }
